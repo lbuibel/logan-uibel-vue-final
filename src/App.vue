@@ -6,6 +6,8 @@
         <router-link to="/">Home</router-link>
         <router-link to="/">About</router-link>
       </div>
+          <v-btn @click="getData">Get Data</v-btn>
+          <h1> {{ fetchedName }} </h1>
       <Footer/>
     </v-content>
   </v-app>
@@ -15,6 +17,7 @@
 import HelloWorld from './components/HelloWorld'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -23,8 +26,20 @@ export default {
     Footer,
     Header,
   },
-  data: () => ({
-    //
-  })
+  data: () => {
+    return {
+      fetchedName: [],
+    }
+  },
+  methods: {
+    getData () {
+      return axios.get('https://swapi.co/api/people').then
+      (response => {
+        console.log(response.data.results[0].name)
+        this.fetchedName = response.data.results[0].name
+      }).catch(error => console.log(error))
+      console.log('Data retrieved')
+    }
+  }
 }
 </script>
