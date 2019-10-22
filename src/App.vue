@@ -1,57 +1,65 @@
 <template>
   <v-app>
     <v-content>
-      <Header/>
+      <Header />
       <div id="nav">
         <router-link to="/">Home</router-link>
         <router-link to="/">About</router-link>
       </div>
 
-          <v-btn @click="getData">Get Data</v-btn>
-          <h1> {{ fetchedName }} </h1>
+      <v-btn @click="getData">Get Data</v-btn>
+      <v-btn @click="moreData">More Data</v-btn>
 
-          <v-btn @click="getPokemon">Get Music</v-btn>
+      <vehicle-grid :vehicles="vehicles"></vehicle-grid>
 
-      <Footer/>
+      <Footer />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import axios from 'axios'
+import HelloWorld from "./components/HelloWorld";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import axios from "axios";
+
+// import { starships } from './assets/starships'
+import { vehicles } from "./assets/vehicles";
+import { films } from "./assets/films";
+
+import VehicleGrid from "./components/VehicleGrid";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HelloWorld,
     Footer,
     Header,
+    VehicleGrid
   },
   data: () => {
     return {
-      fetchedName: ""
-    }
+      vehicles,
+      airspeeder: vehicles.filter(vehicles => vehicles.vehicle_class == 'airspeeder')
+      // starships,
+    };
   },
   methods: {
-    getData () {
-      return axios.get('https://swapi.co/api/people').then
-      (response => {
-        console.log(response.data.results)
-        this.fetchedName = response.data.results[0].name
-      }).catch(error => console.log(error))
-      console.log('Data retrieved')
+    getData() {
+      console.log(vehicles);
     },
-    getPokemon () {
-      return axios.get('https://pokeapi.co/api/v2/pokemon').then
-      (response => {
-        console.log(response.data.results)
-        this.fetchedName = response.data.results[0].name
-      }).catch(error => console.log(error))
-      console.log('Data retrieved')
+    moreData() {
+      console.log(films);
     },
   }
-}
+};
+
+const vehicleTypes = vehicles.map(vehicles => vehicles.vehicle_class)
+console.log(vehicleTypes)
+
+const airspeeder = vehicles.filter(vehicles => vehicles.vehicle_class == 'airspeeder')
+console.log(airspeeder)
+
+
+
 </script>
