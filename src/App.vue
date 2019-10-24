@@ -10,6 +10,7 @@
       <v-btn @click="getData">Get Data</v-btn>
       <v-btn @click="moreData">More Data</v-btn>
 
+
       <vehicle-grid :vehicles="vehicles"></vehicle-grid>
 
       <Footer />
@@ -35,12 +36,13 @@ export default {
     HelloWorld,
     Footer,
     Header,
-    VehicleGrid
+    VehicleGrid,
   },
   data: () => {
     return {
       vehicles,
-      airspeeder: vehicles.filter(vehicles => vehicles.vehicle_class == 'airspeeder')
+      airspeeder: vehicles.filter(vehicles => vehicles.vehicle_class == 'airspeeder'),
+      fetchedName: ''
       // starships,
     };
   },
@@ -51,6 +53,14 @@ export default {
     moreData() {
       console.log(films);
     },
+    getInfo () {
+      return axios.get('https://swapi.co/api/people').then
+      (response => {
+        console.log(response.data.results[0].name)
+        this.fetchedName = response.data.results[0].name
+      }).catch(error => console.log(error))
+      console.log('Data retrieved')
+    }
   }
 };
 
@@ -63,3 +73,13 @@ console.log(airspeeder)
 
 
 </script>
+
+<style scoped>
+  #app {
+    background-color: #323131;
+    padding: 2%;
+  }
+  .container {
+    margin-bottom: 6%;
+  }
+</style>
