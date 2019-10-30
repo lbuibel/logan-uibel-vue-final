@@ -2,19 +2,16 @@
 <div>
   <v-card class="mx-auto pa-3" width="344" dark>
       <v-list-item-content>
-          <v-img
-            src= "../../public/assets/c-9979 landing craft.jpg"
-          ></v-img>
-        <v-list-item-title class="headline mb-6"> {{ vehicle.name }}</v-list-item-title>
+          
+        <ship-image :vehicle="vehicle"></ship-image>
+        <v-list-item-title class="headline"> {{ vehicle.name }}</v-list-item-title>
+        <v-list-item-subtitle class="mb-8"> Vehicle Class: {{ vehicle.vehicle_class }} </v-list-item-subtitle>
 
         <passenger-capacity :vehicle="vehicle"></passenger-capacity>
         <crew-capacity :vehicle="vehicle"></crew-capacity>
         <max-speed :vehicle="vehicle"></max-speed>
 
-
-
       <!-- <v-btn @click="calcCredits">Get Cost</v-btn> -->
-
 
       </v-list-item-content>
   </v-card>
@@ -26,6 +23,7 @@
 import PassengerCapacity from '../components/PassengerCapacity'
 import CrewCapacity from '../components/CrewCapacity'
 import MaxSpeed from '../components/MaxSpeed'
+import ShipImage from '../components/ShipImage'
 
 
 export default {
@@ -34,13 +32,15 @@ export default {
         PassengerCapacity,
         CrewCapacity,
         MaxSpeed,
+        ShipImage,
     },
-//     data: () => {
-//     return {
-//       credits: vehicle.cost_in_credits,
-//     }
-//   },
+    filters: {
+        toUppercase (value) {
+            return value.toUppercase();
+        }
+    }
 }
+
 
 </script>
 

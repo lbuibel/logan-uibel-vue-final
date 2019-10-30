@@ -2,7 +2,8 @@
     <v-container>
         <v-row class="flex-wrap">
             <v-col col="12" sm="4" v-for="vehicle in vehicles" :key="vehicle">
-                <speeder :vehicle="vehicle"></speeder>
+                <speeder :vehicle="vehicle">
+                </speeder>
             </v-col>
         </v-row>
     </v-container>
