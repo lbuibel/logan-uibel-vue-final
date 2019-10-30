@@ -1,8 +1,8 @@
 <template>
 <div>
-  <v-card class="mx-auto pa-3" width="344" dark>
+  <v-card class= "pa-3" dark>
       <v-list-item-content>
-          
+
         <ship-image :vehicle="vehicle"></ship-image>
         <v-list-item-title class="headline"> {{ vehicle.name }}</v-list-item-title>
         <v-list-item-subtitle class="mb-8"> Vehicle Class: {{ vehicle.vehicle_class }} </v-list-item-subtitle>

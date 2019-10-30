@@ -2,6 +2,7 @@
     <div>
           <v-img 
             v-bind:src = vehicleNumber()
+            width="350"
             >
             </v-img>
 
@@ -30,8 +31,8 @@ export default {
                 console.log(`https://starwars-visualguide.com/assets/img/vehicles/${imgID.slice(1,2)}.jpg`);
                 return `https://starwars-visualguide.com/assets/img/vehicles/${imgID.slice(1,2)}.jpg`;
             } else {
-                console.log("placeholder url")
-                return "https://starwars-visualguide.com/assets/img/placeholder.jpg"
+                console.log("img ID of: " + this.vehicle.name + " " + imgID)
+                return `https://starwars-visualguide.com/assets/img/vehicles/${imgID}.jpg`;
             }
         },
     }
