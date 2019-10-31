@@ -2,11 +2,14 @@
     <div>
           <v-img 
             v-bind:src = vehicleNumber()
-            width="350"
+            lazy-src="https://starwars-visualguide.com/assets/img/placeholder.jpg"
+            height="200"
+            :aspect-ratio="16/9"
             >
             </v-img>
+            
 
-            <v-btn @click="vehicleNumber()">ID NUMBER</v-btn>
+            <!-- <v-btn @click="vehicleNumber()">ID NUMBER</v-btn> -->
 
     </div>
 </template>
@@ -21,7 +24,6 @@ export default {
         }
     },
     methods: {
-
         vehicleNumber () {
             let url = (this.vehicle.url)
             let end = url.lastIndexOf("/")
@@ -38,16 +40,6 @@ export default {
     }
 }
 
-//People images
-function getCharNumber(charURL) {
-  let end = charURL.lastIndexOf("/");
-  let charID = charURL.substring(end - 2, end);
-  if (charID.indexOf("/") !== -1) {
-    return charID.slice(1, 2);
-  } else {
-    return charID;
-  }
-}
 
 </script>
 
