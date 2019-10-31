@@ -12,7 +12,7 @@
         <v-list-item-subtitle class="mb-3 pl-2"> Vehicle Class: {{ vehicle.vehicle_class }} </v-list-item-subtitle>
 
         <v-card-actions>
-            <v-btn outlined color="blue" text>Select</v-btn>
+            <v-btn :color="color" @click="selectedVehicle">Select</v-btn>
 
         <v-spacer></v-spacer>
 
@@ -52,6 +52,8 @@ export default {
     data: () => {
     return {
       show: false,
+      color: "gray",
+      counter: 1,
     }
   },
     components: {
@@ -63,6 +65,11 @@ export default {
     filters: {
         toUppercase (value) {
             return value.toUppercase();
+        }
+    },
+    methods: {
+        selectedVehicle () {
+            this.color = "blue";
         }
     }
 }
