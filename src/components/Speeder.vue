@@ -6,9 +6,7 @@
         >
 
         <ship-image class="mb-2" :vehicle="vehicle"></ship-image>
-
         <v-list-item-title class="headline mb-1 pl-2"> {{ vehicle.name }}</v-list-item-title>
-
         <v-list-item-subtitle class="mb-3 pl-2"> Vehicle Class: {{ vehicle.vehicle_class }} </v-list-item-subtitle>
 
         <v-card-actions>
@@ -46,6 +44,8 @@ import CrewCapacity from '../components/CrewCapacity'
 import MaxSpeed from '../components/MaxSpeed'
 import ShipImage from '../components/ShipImage'
 
+import { eventBus } from '../main'
+
 
 export default {
     props: ["vehicle"],
@@ -70,6 +70,7 @@ export default {
     methods: {
         selectedVehicle () {
             this.color = "blue";
+            console.log("vehicle selection: " + this.vehicle.name)
         }
     }
 }
