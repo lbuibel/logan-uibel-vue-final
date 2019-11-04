@@ -27,9 +27,8 @@
 
                 <passenger-capacity :vehicle="vehicle" class="pr-2 pl-2 mt-2"></passenger-capacity>
                 <crew-capacity :vehicle="vehicle" class="pr-2 pl-2"></crew-capacity>
-                <max-speed :vehicle="vehicle" class="pr-2 pl-2"></max-speed>
+                <max-speed :vehicle="vehicle" class="pr-2 pl-2 pb-2"></max-speed>
 
-                <v-divider></v-divider>
 
             </div>
         </v-expand-transition>

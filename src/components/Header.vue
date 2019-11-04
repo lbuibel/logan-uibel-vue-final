@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-toolbar >
-      <v-toolbar-title>Menu</v-toolbar-title>
+    <v-toolbar dark >
+      <v-toolbar-title>Star Wars</v-toolbar-title>
 
       <div class="flex-grow-1"></div>
 

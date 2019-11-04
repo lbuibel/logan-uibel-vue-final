@@ -3,15 +3,42 @@
     <v-content>
       <Header />
       <div id="nav">
-        <router-link to="/about.vue">Home</router-link>
-        <router-link to="/Home.vue">About</router-link>
+        <!-- <router-link to="/about.vue">Home</router-link>
+        <router-link to="/Home.vue">About</router-link> -->
       </div>
 
-      <v-btn @click="airSpeeders">Air Speeders</v-btn>
-      <v-btn @click="wheeledVehicles">Wheeled Vehicles</v-btn>
-      <v-btn @click="repulsorcraft">Repulsocrafts</v-btn>
+     
+      <div class="text-center">
+        <v-menu offset-y>
+          <template v-slot:activator="{ on }">
+            <v-btn
+            color="primary"
+            dark
+            v-on="on"
+            class="ma-2"
+            >
+            Vehicle Type
+            </v-btn>
+          </template>
+          <v-list>
+          <v-list-item @click="all">
+            <v-list-item-title>All</v-list-item-title>
+          </v-list-item>
+            <v-list-item @click="airSpeeders">
+            <v-list-item-title>Air Speeders</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="wheeledVehicles">
+            <v-list-item-title>Wheeled Vehicles</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="repulsorcraft">
+            <v-list-item-title>Repulsocrafts</v-list-item-title>
+          </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
 
       <vehicle-grid :vehicles="array"></vehicle-grid>
+  
 
       <Footer />
     </v-content>
@@ -59,6 +86,9 @@ export default {
     },
     repulsorcraft  () {
       this.array= vehicles.filter(vehicles => vehicles.vehicle_class == 'repulsorcraft')
+    },
+    all () {
+      this.array = vehicles
     }
   }
 };
