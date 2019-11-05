@@ -43,7 +43,6 @@ import CrewCapacity from '../components/CrewCapacity'
 import MaxSpeed from '../components/MaxSpeed'
 import ShipImage from '../components/ShipImage'
 
-import { eventBus } from '../main'
 
 
 export default {
