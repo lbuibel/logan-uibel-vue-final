@@ -16,8 +16,8 @@
             <v-divider></v-divider>
             <v-list-item :key="vehicle.name">
               <v-list-item-avatar>
-                  <img src='https://cdn.vuetifyjs.com/images/lists/1.jpg'>
-                <!-- <ship-image class="mb-2" :vehicle="vehicle"></ship-image> -->
+                  <!-- <img src='https://cdn.vuetifyjs.com/images/lists/1.jpg'> -->
+                <check-out-img :vehicle="vehicle"></check-out-img>
               </v-list-item-avatar>
               <v-list-item-content>
                 <v-list-item-title> {{ vehicle.name }}</v-list-item-title>
@@ -31,7 +31,7 @@
 
 
 <script>
-import ShipImage from '../components/ShipImage'
+import CheckOutImg from '../components/CheckOutImg'
 
 export default {
     props: ["vehicle"],
@@ -42,7 +42,7 @@ export default {
 //     }
 //   },
     components: {
-        ShipImage,
+        CheckOutImg,
     },
     
 }
