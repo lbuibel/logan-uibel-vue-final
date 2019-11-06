@@ -1,24 +1,20 @@
 <template>
     <v-container>
-        <v-row>
-            <v-col col="12" sm="6" md="4" v-for="vehicle in vehicles" :key="vehicle.name">
-
-                <speeder :vehicle="vehicle"></speeder>
-
-            </v-col>
-        </v-row>
+                <div v-for="vehicle in vehicles" :key="vehicle.name">
+                <check-out-item :vehicle="vehicle"></check-out-item>
+                </div>
     </v-container>
 </template>
 
 
 
 <script>
-import Speeder from '../components/CheckOutItem'
+import CheckOutItem from '../components/CheckOutItem'
 
 export default {
     props: ["vehicles"],
     components: {
-        Speeder
+        CheckOutItem
     },
 }
 </script>
