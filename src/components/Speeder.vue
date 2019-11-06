@@ -10,7 +10,7 @@
         <v-list-item-subtitle class="mb-3 pl-2"> Vehicle Class: {{ vehicle.vehicle_class }} </v-list-item-subtitle>
 
         <v-card-actions>
-            <v-btn :color="color" @click="selectedVehicle">Select</v-btn>
+            <v-btn :color="color" @click="selectVehicle">Select</v-btn>
 
         <v-spacer></v-spacer>
 
@@ -51,7 +51,6 @@ export default {
     return {
       show: false,
       color: "gray",
-      counter: 1,
     }
   },
     components: {
@@ -66,9 +65,13 @@ export default {
         }
     },
     methods: {
-        selectedVehicle () {
+        selectVehicle () {
             this.color = "blue";
-            console.log("vehicle selection: " + this.vehicle.name)
+            // let choice = this.vehicle;
+            // this.vehicleSelection.push(this.vehicle)
+            // console.log("vehicle selection: " + this.vehicle.name)
+            this.$store.state.selectedVehicles.push(this.vehicle)
+            // console.log(this.vehicleSelection)
         }
     }
 }
