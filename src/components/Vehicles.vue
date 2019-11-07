@@ -45,6 +45,9 @@ export default {
   data: () => {
     return {
       array: vehicles,
+      dropdown_items: [
+          {text: 'Air Speeders', click: () => airspeeders()}
+      ]
     };
   },
   methods: {
