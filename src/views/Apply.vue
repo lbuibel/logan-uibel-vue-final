@@ -30,15 +30,20 @@
           </v-list-item>
         </v-card>
 
+  <Form></Form>
+
 </div>
 </template>
 
 <script>
 // import VehicleGrid from "../components/VehicleGrid";
 import CheckOut from "../components/CheckOut"
+import Form from "../components/Form"
+
 export default {
   components: {
-    CheckOut
+    CheckOut,
+    Form
   },
   computed: {
       selectedVehicles() {
