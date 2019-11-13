@@ -5,62 +5,60 @@
         v-gray-mode
     >
         <v-card-title class="pl-2">Order Form</v-card-title>
-        <v-card-action>
-        <v-form
-        ref="form"
-        v-model="valid"
-        lazy-validation
-        @submit.prevent="onSubmit"
-    >
-        <v-text-field
-        v-model="name"
-        :counter="20"
-        :rules="nameRules"
-        label="Name"
-        required
-        ></v-text-field>
+            <v-form
+            ref="form"
+            v-model="valid"
+            lazy-validation
+            @submit.prevent="onSubmit"
+            >
+                <v-text-field
+                v-model="name"
+                :counter="20"
+                :rules="nameRules"
+                label="Name"
+                required
+                ></v-text-field>
 
-        <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        label="Email"
-        required
-        ></v-text-field>
+                <v-text-field
+                v-model="email"
+                :rules="emailRules"
+                label="Email"
+                required
+                ></v-text-field>
 
-        <v-text-field
-        v-model="address"
-        :rules="planetRules"
-        label="Ship to - Planet"
-        required
-        ></v-text-field>
+                <v-text-field
+                v-model="address"
+                :rules="planetRules"
+                label="Ship to - Planet"
+                required
+                ></v-text-field>
 
 
-        <v-checkbox
-        v-model="checkbox"
-        :rules="[v => !!v || 'No Droids Allowed!']"
-        label="I am not a Droid"
-        required
-        ></v-checkbox>
+                <v-checkbox
+                v-model="checkbox"
+                :rules="[v => !!v || 'No Droids Allowed!']"
+                label="I am not a Droid"
+                required
+                ></v-checkbox>
 
-        <v-btn
-        :disabled="!valid"
-        color="success"
-        class="mr-4"
-        @click="onSubmit"
-        >
-        Order
-        </v-btn>
+                <v-btn
+                :disabled="!valid"
+                color="success"
+                class="mr-4"
+                @click="onSubmit"
+                >
+                Order
+                </v-btn>
 
-        <v-btn
-        color="error"
-        class="mr-4"
-        @click="reset"
-        >
-        Clear
-        </v-btn>
+                <v-btn
+                color="error"
+                class="mr-4"
+                @click="reset"
+                >
+                Clear
+                </v-btn>
 
-    </v-form>
-        </v-card-action>
+            </v-form>
 
     </v-card>
     <v-btn @click="getPlanets()">Planets</v-btn>

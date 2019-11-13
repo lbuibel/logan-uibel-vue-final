@@ -10,20 +10,13 @@
             <v-list-item-subtitle class="mb-3 pl-2"> Vehicle Class: {{ vehicle.vehicle_class }} </v-list-item-subtitle>
 
             <v-card-actions>
-                <v-btn :color="color" @click="selectVehicle">Select</v-btn>
+                <v-btn @click="selectVehicle" :disabled="clicked">Select</v-btn>
                 <v-snackbar
                 v-model="snackbar"
                 :timeout="timeout"
                 >
                 {{vehicle.name}} Selected
-                <v-btn
-                color="blue"
-                text
-                @click="snackbar = false"
-                >
-                Close
-                </v-btn>
-                <!-- <v-progress-circular :value="20"></v-progress-circular> -->
+                <v-icon dark right color="green">mdi-checkbox-marked-circle</v-icon>
                 </v-snackbar>
             <v-spacer></v-spacer>
 
@@ -63,9 +56,9 @@ export default {
     data: () => {
     return {
       show: false,
-      color: "gray",
       snackbar: false,
-      timeout: 2000
+      timeout: 2000,
+      clicked: false
     }
   },
     components: {
@@ -81,8 +74,8 @@ export default {
     },
     methods: {
         selectVehicle () {
+            this.clicked = true;
             this.snackbar = true;
-            this.color = "blue";
             // let choice = this.vehicle;
             // this.vehicleSelection.push(this.vehicle)
             // console.log("vehicle selection: " + this.vehicle.name)

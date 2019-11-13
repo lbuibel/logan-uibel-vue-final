@@ -1,6 +1,5 @@
 <template>
 <div>
-    <h1>Thank You For Your Order</h1>
     
   <v-card
     class="mx-auto mb-8"

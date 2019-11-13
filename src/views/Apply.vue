@@ -66,3 +66,9 @@ export default {
 }
 
 </script>
+
+<style scoped>
+  h1 {
+    padding: 2%;
+  }
+</style>

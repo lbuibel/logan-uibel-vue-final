@@ -45,7 +45,7 @@ export default {
     },
     methods: {
         remove () {
-            /**Fade works, but**/
+            /**Fade works, but item is removed too quickly for fade to occur**/
             this.show = false
             let removed = this.vehicle
             let array = this.$store.state.selectedVehicles
