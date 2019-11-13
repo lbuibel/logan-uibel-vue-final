@@ -23,15 +23,40 @@
     </v-row>
   </v-parallax>
   <h1>Your Mission</h1>
-  <div class="homepage"></div>
-  </div>
+
+    <v-btn @click= "show = !show">Test</v-btn>
+
+    <transition name="fade">
+        <div class="homepage" v-if="show">
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        </div>
+    </transition>
+
+</div>
 </template>
 
+<script>
+export default {
+    data: () => {
+    return {
+      show: false,
+    }
+  }
+}
+</script>
+
 <style scoped>
-    /* h1 {
-        color: yellow;
-    } */
-    .homepage {
-        height: 20vh;
+    .fade-enter {
+        opacity: 0;
+    }
+    .fade-active {
+        transition: opacity .5s;
+    }
+    .fade-leave {
+        opacity: 1;
+    }
+    .fade-leave-active {
+        transition: opacity .5s;
+        opacity: 0;
     }
 </style>

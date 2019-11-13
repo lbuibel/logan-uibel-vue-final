@@ -4,16 +4,17 @@
         class="mx-auto pa-2 ma-2 card"
         v-gray-mode
     >
-        <v-card-title class="pl-2">Logan Uibel - Form Input</v-card-title>
+        <v-card-title class="pl-2">Order Form</v-card-title>
         <v-card-action>
         <v-form
         ref="form"
         v-model="valid"
         lazy-validation
+        @submit.prevent="onSubmit"
     >
         <v-text-field
         v-model="name"
-        :counter="10"
+        :counter="20"
         :rules="nameRules"
         label="Name"
         required
@@ -22,19 +23,22 @@
         <v-text-field
         v-model="email"
         :rules="emailRules"
-        label="E-mail"
+        label="Email"
         required
         ></v-text-field>
 
-        <v-textarea
-            label="Add a Comment"
-            rows="1"
-            ></v-textarea>
+        <v-text-field
+        v-model="address"
+        :rules="planetRules"
+        label="Ship to - Planet"
+        required
+        ></v-text-field>
+
 
         <v-checkbox
         v-model="checkbox"
-        :rules="[v => !!v || 'You must agree to continue!']"
-        label="Do you agree?"
+        :rules="[v => !!v || 'No Droids Allowed!']"
+        label="I am not a Droid"
         required
         ></v-checkbox>
 
@@ -42,9 +46,9 @@
         :disabled="!valid"
         color="success"
         class="mr-4"
-        @click="validate"
+        @click="onSubmit"
         >
-        Validate
+        Order
         </v-btn>
 
         <v-btn
@@ -52,14 +56,14 @@
         class="mr-4"
         @click="reset"
         >
-        Reset Form
+        Clear
         </v-btn>
 
     </v-form>
         </v-card-action>
 
     </v-card>
-    <v-btn @click="getInfo()">check</v-btn>
+    <v-btn @click="getPlanets()">Planets</v-btn>
     </div>
 
 </template>
@@ -72,23 +76,38 @@ import axios from "axios";
 
   export default {
     data: () => ({
-      name: "Logan Uibel",
       valid: true,
       name: '',
       nameRules: [
         v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+        v => (v && v.length <= 20) || 'Name must be less than 20 characters',
       ],
       email: '',
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
       ],
-      select: null,
+      planetRules: [
+          v => !!v || 'Planet is required',
+      ],
+      address: '',
       checkbox: false,
     }),
 
     methods: {
+      onSubmit() {
+          const formData = {
+              name: this.name,
+              emai: this.email,
+              address: this.address
+          }
+          this.$store.dispatch('orderSubmitted', {
+              name: this.name,
+              email: this.email,
+              address: this.address
+          })
+        console.log(formData)
+      },
       validate () {
         if (this.$refs.form.validate()) {
           this.snackbar = true
@@ -97,21 +116,24 @@ import axios from "axios";
       reset () {
         this.$refs.form.reset()
       },
-      getInfo () {
-        return axios.get('https://swapi.co/api/people').then
+      getPlanets () {
+        return axios.get('https://swapi.co/api/planets').then
         (response => {
-            console.log(response.data.results)
-            this.fetchedName = response.data.results[0].name
+            let array = response.data.results
+            let planetArray = array.map(element => element.name)
+            console.log(planetArray)
+            this.items=planetArray
         }).catch(error => console.log(error))
-        console.log('Data retrieved')}
+        console.log('Data retrieved')
+        },
     },
     directives: {
       'gray-mode': {
         bind(el, binding, vnode) {
-          el.style.backgroundColor = '#e0e0e0';
+          el.style.backgroundColor = 'gray';
         }
     }
-  }
+  },
 }
 
 </script>

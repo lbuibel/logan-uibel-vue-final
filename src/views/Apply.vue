@@ -50,21 +50,19 @@ export default {
         return this.$store.state.selectedVehicles;
         },
       totalCargo() {
-        let array = this.selectedVehicles
-        let cargo = array.reduce((acc, vehicle)=> acc + vehicle.cargo_capacity, 0)
+        let cargo = this.$store.state.selectedVehicles.reduce((acc, vehicle)=> acc + vehicle.cargo_capacity, 0)
         return cargo
       },
       totalPassengers() {
-        let array = this.selectedVehicles
-        let passenger = array.reduce((acc, person)=> acc + person.passengers, 0)
+        let passenger = this.$store.state.selectedVehicles.reduce((acc, person)=> acc + person.passengers, 0)
         return passenger
       },
       totalCrew() {
-        let array = this.selectedVehicles
-        let crew = array.reduce((acc, person)=> acc + person.crew, 0)
+        let crew = this.$store.state.selectedVehicles.reduce((acc, person)=> acc + person.crew, 0)
         return crew
       }
     },
+    watch: {}
 }
 
 </script>

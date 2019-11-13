@@ -1,38 +1,51 @@
 <template>
-    <v-card
-        class="mx-auto"
-        max-width="344"
-        dark
-        >
+        <v-card
+            class="mx-auto"
+            max-width="344"
+            dark
+            >
 
-        <ship-image class="mb-2" :vehicle="vehicle"></ship-image>
-        <v-list-item-title class="headline mb-1 pl-2"> {{ vehicle.name }}</v-list-item-title>
-        <v-list-item-subtitle class="mb-3 pl-2"> Vehicle Class: {{ vehicle.vehicle_class }} </v-list-item-subtitle>
+            <ship-image class="mb-2" :vehicle="vehicle"></ship-image>
+            <v-list-item-title class="headline mb-1 pl-2"> {{ vehicle.name }}</v-list-item-title>
+            <v-list-item-subtitle class="mb-3 pl-2"> Vehicle Class: {{ vehicle.vehicle_class }} </v-list-item-subtitle>
 
-        <v-card-actions>
-            <v-btn :color="color" @click="selectVehicle">Select</v-btn>
+            <v-card-actions>
+                <v-btn :color="color" @click="selectVehicle">Select</v-btn>
+                <v-snackbar
+                v-model="snackbar"
+                :timeout="timeout"
+                >
+                {{vehicle.name}} Selected
+                <v-btn
+                color="blue"
+                text
+                @click="snackbar = false"
+                >
+                Close
+                </v-btn>
+                <!-- <v-progress-circular :value="20"></v-progress-circular> -->
+                </v-snackbar>
+            <v-spacer></v-spacer>
 
-        <v-spacer></v-spacer>
+            <v-btn
+                icon
+                @click="show = !show"
+            >
+                <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+            </v-btn>
+            </v-card-actions>
+                <v-expand-transition>
+                <div v-show="show">
+                    <v-divider></v-divider>
 
-        <v-btn
-            icon
-            @click="show = !show"
-        >
-            <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-        </v-btn>
-        </v-card-actions>
-            <v-expand-transition>
-            <div v-show="show">
-                <v-divider></v-divider>
-
-                <passenger-capacity :vehicle="vehicle" class="pr-2 pl-2 mt-2"></passenger-capacity>
-                <crew-capacity :vehicle="vehicle" class="pr-2 pl-2"></crew-capacity>
-                <max-speed :vehicle="vehicle" class="pr-2 pl-2 pb-2"></max-speed>
+                    <passenger-capacity :vehicle="vehicle" class="pr-2 pl-2 mt-2"></passenger-capacity>
+                    <crew-capacity :vehicle="vehicle" class="pr-2 pl-2"></crew-capacity>
+                    <max-speed :vehicle="vehicle" class="pr-2 pl-2 pb-2"></max-speed>
 
 
-            </div>
-        </v-expand-transition>
-  </v-card>
+                </div>
+            </v-expand-transition>
+        </v-card>
 </template>
 
 
@@ -51,6 +64,8 @@ export default {
     return {
       show: false,
       color: "gray",
+      snackbar: false,
+      timeout: 2000
     }
   },
     components: {
@@ -66,6 +81,7 @@ export default {
     },
     methods: {
         selectVehicle () {
+            this.snackbar = true;
             this.color = "blue";
             // let choice = this.vehicle;
             // this.vehicleSelection.push(this.vehicle)

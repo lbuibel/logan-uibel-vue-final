@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Apply from './views/Apply.vue'
 import VehiclePage from './views/Vehicle.vue'
+import Confirmation from './views/Confirmation.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/vehicles',
       name: 'vehicle-page',
       component: VehiclePage
+    },
+    {
+      path: '/confirmation',
+      name: 'confirmation-page',
+      component: Confirmation
     }
   ]
 })

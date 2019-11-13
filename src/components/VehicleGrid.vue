@@ -2,9 +2,11 @@
     <v-container>
         <v-row class="flex-wrap">
             <v-col col="12" sm="6" md="4" v-for="vehicle in vehicles" :key="vehicle.name">
-
-                <speeder :vehicle="vehicle"></speeder>
-
+                
+                <transition name="fade-in" appear>
+                    <speeder v-if="show" :vehicle="vehicle"></speeder>
+                </transition>
+                
             </v-col>
         </v-row>
     </v-container>
@@ -20,6 +22,11 @@ export default {
     components: {
         Speeder
     },
+    data: () => {
+    return {
+      show: true,
+    }
+    }
 }
 </script>
 
