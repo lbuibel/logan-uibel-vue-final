@@ -22,21 +22,35 @@
       </v-col>
     </v-row>
   </v-parallax>
-  <h1>Your Mission</h1>
+
+  <div class="pa-5 mb-5">
+      <h1>Vehicle Depot</h1>
+      <p>The number one place in the galaxy for your vehicle needs!</p>
+  </div>
+
+  <timeline></timeline>
 
 </div>
 </template>
 
 <script>
+import Timeline from '../components/Timeline'
 export default {
     data: () => {
     return {
       show: false,
     }
-  }
+  },
+    components: {
+      Timeline,
+    }
 }
 </script>
 
 <style scoped>
-
+  #contentWrapper {
+    width: 84%;
+    margin: 2% auto;
+    height: 15vh;
+  }
 </style>

@@ -76,11 +76,7 @@ export default {
         selectVehicle () {
             this.clicked = true;
             this.snackbar = true;
-            // let choice = this.vehicle;
-            // this.vehicleSelection.push(this.vehicle)
-            // console.log("vehicle selection: " + this.vehicle.name)
             this.$store.state.selectedVehicles.push(this.vehicle)
-            // console.log(this.vehicleSelection)
         }
     }
 }

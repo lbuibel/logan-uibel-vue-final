@@ -1,7 +1,7 @@
     <template>
     <div>
     <v-card
-        class="mx-auto pa-2 ma-2 card"
+        class="mx-auto pa-2 ma-2 card mb-4"
         dark
         v-wrapper
     >
@@ -62,7 +62,6 @@
             </v-form>
 
     </v-card>
-    <v-btn @click="getPlanets()">Planets</v-btn>
     </div>
 
 </template>
@@ -71,8 +70,6 @@
 
 
 <script>
-import axios from "axios";
-
   export default {
     data: () => ({
       valid: true,
@@ -115,15 +112,6 @@ import axios from "axios";
       reset () {
         this.$refs.form.reset()
       },
-      getPlanets () {
-        return axios.get('https://swapi.co/api/planets').then
-        (response => {
-            let array = response.data.results
-            let planetArray = array.map(element => element.name)
-            console.log(planetArray)
-        }).catch(error => console.log(error))
-        console.log('Data retrieved')
-        }
     },
     directives: {
       'wrapper': {

@@ -8,7 +8,7 @@
       <v-toolbar-items>
         <v-btn text to="/">Home</v-btn>
         <v-btn text to="vehicles">Vehicles</v-btn>
-        <v-btn text to="apply">Check Out</v-btn>
+        <v-btn text to="checkout">Check Out</v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </div>

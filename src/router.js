@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Apply from './views/Apply.vue'
+import Checkout from './views/Checkout.vue'
 import VehiclePage from './views/Vehicle.vue'
 import Confirmation from './views/Confirmation.vue'
 
@@ -17,9 +17,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/apply',
-      name: 'apply',
-      component: Apply
+      path: '/checkout',
+      name: 'checkout',
+      component: Checkout
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
