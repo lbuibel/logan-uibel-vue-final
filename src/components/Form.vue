@@ -2,7 +2,8 @@
     <div>
     <v-card
         class="mx-auto pa-2 ma-2 card"
-        v-gray-mode
+        dark
+        v-wrapper
     >
         <v-card-title class="pl-2">Order Form</v-card-title>
             <v-form
@@ -120,15 +121,14 @@ import axios from "axios";
             let array = response.data.results
             let planetArray = array.map(element => element.name)
             console.log(planetArray)
-            this.items=planetArray
         }).catch(error => console.log(error))
         console.log('Data retrieved')
-        },
+        }
     },
     directives: {
-      'gray-mode': {
+      'wrapper': {
         bind(el, binding, vnode) {
-          el.style.backgroundColor = 'gray';
+          el.style.width = "84%";
         }
     }
   },

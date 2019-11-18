@@ -7,6 +7,7 @@
           dark
           class="mx-auto mb-5"
           tile
+          v-wrapper
         >
           <v-list-item two-line>
             <v-list-item-content>
@@ -62,7 +63,13 @@ export default {
         return crew
       }
     },
-    watch: {}
+    directives: {
+      'wrapper': {
+        bind(el, binding, vnode) {
+          el.style.width = "84%";
+        }
+    }
+  },
 }
 
 </script>
