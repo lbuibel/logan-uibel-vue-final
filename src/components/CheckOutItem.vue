@@ -1,6 +1,5 @@
 <template>
 
-<transition name="fade">
     <div v-if="show">
         <v-card class="mb-2" dark>
             <v-list two-line>
@@ -25,7 +24,6 @@
             </v-list>
         </v-card>
     </div>
-</transition>
 </template>
 
 
@@ -63,18 +61,4 @@ export default {
 </script>
 
 <style scoped>
-    .fade-enter {
-        opacity: 0;
-    }
-    .fade-active {
-        transition: opacity 1s;
-    }
-    .fade-leave {
-        opacity: 1;
-    }
-    .fade-leave-active {
-        transition: opacity .5s;
-        opacity: 0;
-    }
-
 </style>
