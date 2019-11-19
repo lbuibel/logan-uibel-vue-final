@@ -1,7 +1,7 @@
 <template> 
             <v-list two-line>
-                <v-subheader> {{ vehicle.name }}</v-subheader>
-                <v-divider></v-divider>
+                <!-- <v-subheader> {{ vehicle.name }}</v-subheader>
+                <v-divider></v-divider> -->
                 <v-list-item :key="vehicle.name">
 
                 <v-list-item-avatar>

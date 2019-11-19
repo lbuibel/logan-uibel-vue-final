@@ -23,10 +23,10 @@
     </v-row>
   </v-parallax>
 
-  <div class="pa-5 mb-5">
+  <!-- <div class="pa-5 mb-5">
       <h1>Vehicle Depot</h1>
       <p>The number one place in the galaxy for your vehicle needs!</p>
-  </div>
+  </div> -->
 
   <timeline></timeline>
 
