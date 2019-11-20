@@ -22,7 +22,7 @@
         </div>
       </div>
     </v-timeline-item>
-    <v-btn text @click="getMovies"></v-btn>
+    <v-btn text disabled @click="getMovies"></v-btn>
   </v-timeline>
 </div>
 </template>
