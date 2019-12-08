@@ -150,7 +150,11 @@ Three different routes are used in the header component to provide navigation fo
 ## Managing State using Vuex
 The store contains two sets of information, the first is an empty array named selectedVehicles contains the vehicles that are selected by the user.
 
+This data is primarily used in the [Checkout.vue](https://github.com/lbuibel/logan-uibel-vue-final/blob/master/src/views/Checkout.vue) page.  On line 50 I set up a selectedVehicle array wich is the same at the array in the store.  Then on line 4 I looped through this array to display all the info using the checkout component.
+
 The second set of info named user contains the information gather by the form.
 
 [Store.js](https://github.com/lbuibel/logan-uibel-vue-final/blob/master/src/store.js)
+
+
 
